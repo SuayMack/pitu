@@ -1,8 +1,8 @@
 import app from './app';
 import database from './database';
 
-
-database.sync({force: true});
+//database.sync({force: true}); Força a criação do banco de dados
+database.sync();
 console.log('Database running at 3306')
 
 app.listen(3000);
