@@ -1,6 +1,7 @@
 import  React from 'react';
 
 class StatsPage extends React.Component {
+    // eslint-disable-next-line
     constructor(props) {
         super(props);
     }

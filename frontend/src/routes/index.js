@@ -14,15 +14,15 @@ import NotFoundPage from '../pages/NotFoundPage';
 
 function Routes() {
     return (
-        <BrowserRouter>
-            <Switch>
-                <Route exact path="/" component={HomePage} />
-                <Route exact path="/:code" component={RedirectPage} />
-                <Route exact path="/:code/stats" component={StatsPage} />
-                <Route exact path="/*" component={NotFoundPage} />
-            </Switch>
-        </BrowserRouter>
-    )
-}
-
-export default Routes;
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/:code" component={RedirectPage} />
+          <Route exact path="/:code/stats" component={StatsPage} />
+          <Route exact path="/*" component={NotFoundPage} />
+        </Switch>
+      </BrowserRouter>
+    );
+  }
+  
+  export default Routes;
