@@ -1,7 +1,7 @@
 import  React from 'react';
 import { Container } from 'react-bootstrap';
 import { parseISO, formatRelative } from 'date-fns';
-import ptBR from 'data-fns/locale/pt-BR';
+import ptBR from 'date-fns/locale/pt-BR';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
