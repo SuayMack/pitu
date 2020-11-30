@@ -1,13 +1,13 @@
 import  React from 'react';
+import Header from '../../components/Header';
 import { Container } from 'react-bootstrap';
-import { parseISO, formatRelative } from 'date-fns';
-import ptBR from 'date-fns/locale/pt-BR';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import ShortenerService from '../../services/shortenerService';
-import Header from '../../components/Header';
 
+import { parseISO, formatRelative } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { StatsContainer, StatsRow, StatsBox, StatsBoxTitle } from './styles';
 
 
@@ -30,11 +30,12 @@ class StatsPage extends React.Component {
             const service = new ShortenerService();
             const shortenedURL = await service.getStats(code);
 
-            const parsedDate = parseISO(shortenedURL.updateAt);
+            // Convertendo data de string para datetime
+            const parsedDate = parseISO(shortenedURL.updatedAt);
             const currentDate = new Date();
 
             const relativeDate = formatRelative(parsedDate, currentDate, {
-                locale: ptBR,
+                locale: ptBR
             });
 
             shortenedURL.relativeDate = relativeDate;
@@ -42,7 +43,10 @@ class StatsPage extends React.Component {
             this.setState({ isLoading: false, shortenedURL });
 
         } catch (error) {
-            this.setState({ isLoading: false, errorMessage: 'Ops, a url solicitada nãi existe.' });
+            this.setState({
+                isLoading: false,
+                errorMessage: "Ops! A URL solicitada não existe."
+              });
         }
     }
 
